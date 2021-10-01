@@ -1,9 +1,6 @@
 import java.util.*
 
-fun main(args: Array<String>) {
-//    println("Hello World!")
-    // Try adding program arguments at Run/Debug configuration
-//    println("Program arguments: ${args.joinToString()}")
+fun main(@Suppress("UNUSED_PARAMETER") args: Array<String>) {
     println(reverseString("The Daily Byte"))
 }
 
@@ -17,4 +14,13 @@ fun reverseString(input: String): String {
         sb.append(stack.pop())
     }
     return sb.toString()
+}
+
+fun isValidPalindrome(input: String): Boolean {
+    for (i in 0..input.length / 2) {
+        if (input[i] != input[input.length - i - 1]) {
+            return false
+        }
+    }
+    return true
 }

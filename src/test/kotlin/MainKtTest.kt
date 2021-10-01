@@ -9,4 +9,10 @@ internal class MainKtTest {
         assertEquals("etyB yliaD ehT", reverseString("The Daily Byte"))
         assertEquals("civic", reverseString("civic"))
     }
+
+    @Test
+    fun isValidPalindrome() {
+        assertTrue(isValidPalindrome("madam"))
+        assertFalse(isValidPalindrome("ben"))
+    }
 }
