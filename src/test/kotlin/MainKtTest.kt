@@ -14,5 +14,6 @@ internal class MainKtTest {
     fun isValidPalindrome() {
         assertTrue(isValidPalindrome("madam"))
         assertFalse(isValidPalindrome("ben"))
+        assertTrue(isValidPalindrome("A man, a plan, a canal: Panama.", true))
     }
 }
