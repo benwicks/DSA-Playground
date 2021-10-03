@@ -27,3 +27,19 @@ fun isValidPalindrome(input: String, shouldIgnoreNonAlphabeticalCharactersAndCas
     }
     return true
 }
+
+fun willRobotVacuumReturnToOriginalPosition(input: String): Boolean {
+    var xTravel = 0
+    var yTravel = 0
+
+    for (c in input) {
+        when (c) {
+            'L' -> xTravel--
+            'R' -> xTravel++
+            'U' -> yTravel++
+            'D' -> yTravel--
+        }
+    }
+
+    return xTravel == 0 && yTravel == 0
+}

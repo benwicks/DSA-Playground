@@ -16,4 +16,11 @@ internal class MainKtTest {
         assertFalse(isValidPalindrome("ben"))
         assertTrue(isValidPalindrome("A man, a plan, a canal: Panama.", true))
     }
+
+    @Test
+    fun willRobotVacuumReturnToOriginalPosition() {
+        assertTrue(willRobotVacuumReturnToOriginalPosition("LR"))
+        assertFalse(willRobotVacuumReturnToOriginalPosition("URURD"))
+        assertTrue(willRobotVacuumReturnToOriginalPosition("RUULLDRD"))
+    }
 }
