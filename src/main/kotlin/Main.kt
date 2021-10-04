@@ -43,3 +43,12 @@ fun willRobotVacuumReturnToOriginalPosition(input: String): Boolean {
 
     return xTravel == 0 && yTravel == 0
 }
+
+/**
+ * A string correctly uses capitalization if all letters are capitalized, no letters are capitalized, or only the first letter is capitalized.
+ */
+fun doesUseCapitalizationCorrectly(input: String): Boolean {
+    val areAllFollowingCharsLowerCase = input.substring(1 until input.length).all { it.isLowerCase() }
+    return (input[0].isLowerCase() && areAllFollowingCharsLowerCase) ||
+            areAllFollowingCharsLowerCase || input.substring(1 until input.length).all { it.isUpperCase()}
+}

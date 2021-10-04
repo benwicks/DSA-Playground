@@ -23,4 +23,12 @@ internal class MainKtTest {
         assertFalse(willRobotVacuumReturnToOriginalPosition("URURD"))
         assertTrue(willRobotVacuumReturnToOriginalPosition("RUULLDRD"))
     }
+
+    @Test
+    fun doesUseCapitalizationCorrectly() {
+        assertTrue(doesUseCapitalizationCorrectly("USA"))
+        assertTrue(doesUseCapitalizationCorrectly("Calvin"))
+        assertFalse(doesUseCapitalizationCorrectly("compUter"))
+        assertTrue(doesUseCapitalizationCorrectly("coding"))
+    }
 }
