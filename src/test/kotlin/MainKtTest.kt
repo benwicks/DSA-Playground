@@ -31,4 +31,11 @@ internal class MainKtTest {
         assertFalse(doesUseCapitalizationCorrectly("compUter"))
         assertTrue(doesUseCapitalizationCorrectly("coding"))
     }
+
+    @Test
+    fun addBinaryStrings() {
+        assertEquals("101", addBinaryStrings("100", "1"))
+        assertEquals("100", addBinaryStrings("11", "1"))
+        assertEquals("101", addBinaryStrings("100", "1"))
+    }
 }
