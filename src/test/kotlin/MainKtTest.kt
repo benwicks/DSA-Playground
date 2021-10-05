@@ -38,4 +38,11 @@ internal class MainKtTest {
         assertEquals("100", addBinaryStrings("11", "1"))
         assertEquals("101", addBinaryStrings("100", "1"))
     }
+
+    @Test
+    fun getLongestCommonPrefix() {
+        assertEquals("col", getLongestCommonPrefix(listOf("colorado", "color", "cold")))
+        assertEquals("", getLongestCommonPrefix(listOf("a", "b", "c")))
+        assertEquals("spot", getLongestCommonPrefix(listOf("spot", "spotty", "spotted")))
+    }
 }

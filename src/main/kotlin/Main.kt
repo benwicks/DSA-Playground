@@ -69,3 +69,15 @@ fun addBinaryStrings(string1: String, string2: String): String {
     }
     return sumList.joinToString("") { if (it) "1" else "0" }.reversed()
 }
+
+fun getLongestCommonPrefix(input: List<String>): String {
+    var longestCommonPrefix = input.minByOrNull { it.length } ?: return ""
+    while (longestCommonPrefix.isNotEmpty()) {
+        if (input.map { it.substring(longestCommonPrefix.indices) }.all { it == longestCommonPrefix }) {
+            break
+        } else {
+            longestCommonPrefix = longestCommonPrefix.substring(0..longestCommonPrefix.length - 2)
+        }
+    }
+    return longestCommonPrefix
+}
