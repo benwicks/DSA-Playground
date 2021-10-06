@@ -45,4 +45,12 @@ internal class MainKtTest {
         assertEquals("", getLongestCommonPrefix(listOf("a", "b", "c")))
         assertEquals("spot", getLongestCommonPrefix(listOf("spot", "spotty", "spotted")))
     }
+
+    @Test
+    fun findDuplicateOptimizedForSpace() {
+        assertEquals(4, findDuplicateOptimizedForSpace(listOf(1, 2, 3, 4, 4)))
+        assertEquals(3, findDuplicateOptimizedForSpace(listOf(1, 2, 3, 3, 4)))
+        assertEquals(3, findDuplicateOptimizedForSpace(listOf(1, 1, 3, 3, 4)))
+        assertEquals(3, findDuplicateOptimizedForSpace(listOf(3, 3, 1, 2, 4)))
+    }
 }

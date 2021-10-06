@@ -2,7 +2,7 @@ import java.lang.Integer.max
 import java.util.*
 
 fun main(@Suppress("UNUSED_PARAMETER") args: Array<String>) {
-    println(reverseString("The Daily Byte"))
+
 }
 
 fun reverseString(input: String): String {
@@ -80,4 +80,28 @@ fun getLongestCommonPrefix(input: List<String>): String {
         }
     }
     return longestCommonPrefix
+}
+
+/**
+ * Where n = {input.size} - 1 and all numbers in input are in the range 1..n. There must be at least one duplicate.
+ * Use binary search to bring time complexity down to O(n log n). Not sorting the input out of place keeps space complexity at O(1).
+ */
+fun findDuplicateOptimizedForSpace(input: List<Int>): Int {
+    var floor = 1
+    var ceiling = input.size - 1
+
+    while (floor < ceiling) {
+        val midpoint = floor + ((ceiling - floor) / 2)
+
+        // Count number of items in lower range.
+        if (input.count { it in floor..midpoint } > midpoint - floor + 1) {
+            // A duplicate must be in this lower range.
+            ceiling = midpoint
+        } else {
+            // A duplicate must be in this upper range.
+            floor = midpoint + 1
+        }
+    }
+
+    return floor
 }
