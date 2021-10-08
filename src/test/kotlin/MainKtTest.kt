@@ -67,4 +67,11 @@ internal class MainKtTest {
         assertFalse(doTwoNumbersSumToTarget(intArrayOf(3, 9, 13, 7), 8))
         assertTrue(doTwoNumbersSumToTarget(intArrayOf(4, 2, 6, 5, 2), 4))
     }
+
+    @Test
+    fun returnStonesThatAreAlsoJewels() {
+        assertEquals(2, stonesThatAreAlsoJewels("abc", "ac"))
+        assertEquals(3, stonesThatAreAlsoJewels("Af", "AaaddfFf"))
+        assertEquals(0, stonesThatAreAlsoJewels("AYOPD", "ayopd"))
+    }
 }

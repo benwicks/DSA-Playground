@@ -128,3 +128,8 @@ fun doTwoNumbersSumToTarget(input: IntArray, target: Int): Boolean {
     }
     return false
 }
+
+fun stonesThatAreAlsoJewels(jewels: String, stones: String): Int {
+    val jewelSet = jewels.toSet()
+    return stones.count { it in jewelSet }
+}
