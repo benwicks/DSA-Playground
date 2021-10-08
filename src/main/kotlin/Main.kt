@@ -105,3 +105,26 @@ fun findDuplicateOptimizedForSpace(input: List<Int>): Int {
 
     return floor
 }
+
+fun canFormPalindromeByDeletingAtMostOneChar(input: String): Boolean {
+    for (i in 0..input.length / 2) {
+        val end = input.length - 1 - i
+        if (i < end - 1 && input[i] != input[end]) {
+            // try removing char at i or j and re-testing resulting inner string.
+            return isValidPalindrome(input.substring(i + 2, end)) || isValidPalindrome(input.substring(i + 1, end - 1))
+        }
+    }
+    return true
+}
+
+fun doTwoNumbersSumToTarget(input: IntArray, target: Int): Boolean {
+    val set = mutableSetOf<Int>()
+    for (i in input.indices) {
+        val difference = target - input[i]
+        if (difference in set) {
+            return true
+        }
+        set.add(input[i])
+    }
+    return false
+}

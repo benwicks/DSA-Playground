@@ -53,4 +53,18 @@ internal class MainKtTest {
         assertEquals(3, findDuplicateOptimizedForSpace(listOf(1, 1, 3, 3, 4)))
         assertEquals(3, findDuplicateOptimizedForSpace(listOf(3, 3, 1, 2, 4)))
     }
+
+    @Test
+    fun canFormPalindromeByDeletingAtMostOneChar() {
+        assertTrue(canFormPalindromeByDeletingAtMostOneChar("abcba"))
+        assertTrue(canFormPalindromeByDeletingAtMostOneChar("foobof"))
+        assertFalse(canFormPalindromeByDeletingAtMostOneChar("abccab"))
+    }
+
+    @Test
+    fun doTwoNumbersSumToTarget() {
+        assertTrue(doTwoNumbersSumToTarget(intArrayOf(1, 3, 8, 2), 10))
+        assertFalse(doTwoNumbersSumToTarget(intArrayOf(3, 9, 13, 7), 8))
+        assertTrue(doTwoNumbersSumToTarget(intArrayOf(4, 2, 6, 5, 2), 4))
+    }
 }
