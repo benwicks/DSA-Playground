@@ -133,3 +133,26 @@ fun stonesThatAreAlsoJewels(jewels: String, stones: String): Int {
     val jewelSet = jewels.toSet()
     return stones.count { it in jewelSet }
 }
+
+fun String.isAnagram(other: String): Boolean {
+    if (length == other.length) {
+        val map = mutableMapOf<Char, Int>()
+        toCharArray().forEachIndexed { index, char ->
+            val otherChar = other[index]
+            if (otherChar != char) {
+                if (char in map) {
+                    map[char] = map[char]!! + 1
+                } else {
+                    map += char to 1
+                }
+                if (otherChar in map) {
+                    map[otherChar] = map[otherChar]!! - 1
+                } else {
+                    map += otherChar to -1
+                }
+            }
+        }
+        return map.all { it.value == 0 }
+    }
+    return false
+}

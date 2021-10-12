@@ -74,4 +74,12 @@ internal class MainKtTest {
         assertEquals(3, stonesThatAreAlsoJewels("Af", "AaaddfFf"))
         assertEquals(0, stonesThatAreAlsoJewels("AYOPD", "ayopd"))
     }
+
+    @Test
+    fun isAnagram() {
+        assertTrue("cat".isAnagram("tac"))
+        assertTrue("listen".isAnagram("silent"))
+        assertFalse("program".isAnagram("function"))
+        assertFalse("functioo".isAnagram("function"))
+    }
 }
