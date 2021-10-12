@@ -156,3 +156,26 @@ fun String.isAnagram(other: String): Boolean {
     }
     return false
 }
+
+fun indexOfFirstUniqueCharacter(input: String): Int {
+    val seenChars = mutableSetOf<Char>()
+    for (i in input.indices) {
+        val currentChar = input[i]
+        if (currentChar in seenChars) {
+            continue
+        }
+        seenChars.add(currentChar)
+        for (j in i + 1 until input.length) {
+            if (currentChar == input[j]) {
+                break
+            }
+            if (j == input.length - 1) {
+                return i
+            }
+        }
+        if (i == input.length - 1) {
+            return i
+        }
+    }
+    return -1
+}

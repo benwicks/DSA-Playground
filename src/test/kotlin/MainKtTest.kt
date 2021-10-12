@@ -82,4 +82,13 @@ internal class MainKtTest {
         assertFalse("program".isAnagram("function"))
         assertFalse("functioo".isAnagram("function"))
     }
+
+    @Test
+    fun indexOfFirstUniqueCharacter() {
+        assertEquals(2, indexOfFirstUniqueCharacter("abcabd"))
+        assertEquals(1, indexOfFirstUniqueCharacter("thedailybyte"))
+        assertEquals(0, indexOfFirstUniqueCharacter("developer"))
+        assertEquals(2, indexOfFirstUniqueCharacter("eer"))
+        assertEquals(-1, indexOfFirstUniqueCharacter("ee"))
+    }
 }
