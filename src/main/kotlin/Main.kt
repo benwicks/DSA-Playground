@@ -179,3 +179,11 @@ fun indexOfFirstUniqueCharacter(input: String): Int {
     }
     return -1
 }
+
+fun findRandomAddedLetter(s: String, t: String): Char {
+    return if (s.length < t.length) {
+        t.first { it !in s }
+    } else {
+        ' '
+    }
+}

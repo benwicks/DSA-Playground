@@ -91,4 +91,11 @@ internal class MainKtTest {
         assertEquals(2, indexOfFirstUniqueCharacter("eer"))
         assertEquals(-1, indexOfFirstUniqueCharacter("ee"))
     }
+
+    @Test
+    fun findRandomAddedLetter() {
+        assertEquals('t', findRandomAddedLetter("foobar", "barfoot"))
+        assertEquals('a', findRandomAddedLetter("ide", "idea"))
+        assertEquals(' ', findRandomAddedLetter("coding", "ingcod"))
+    }
 }
