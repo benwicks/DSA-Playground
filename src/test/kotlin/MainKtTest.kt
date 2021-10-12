@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import kotlin.test.assertContentEquals
 
 internal class MainKtTest {
 
@@ -97,5 +98,12 @@ internal class MainKtTest {
         assertEquals('t', findRandomAddedLetter("foobar", "barfoot"))
         assertEquals('a', findRandomAddedLetter("ide", "idea"))
         assertEquals(' ', findRandomAddedLetter("coding", "ingcod"))
+    }
+
+    @Test
+    fun getIntersection() {
+        assertContentEquals(intArrayOf(2, 4), intArrayOf(2, 4, 4, 2).getIntersection(intArrayOf(2, 4)))
+        assertContentEquals(intArrayOf(3), intArrayOf(1, 2, 3, 3).getIntersection(intArrayOf(3, 3)))
+        assertContentEquals(intArrayOf(), intArrayOf(2, 4, 6, 8).getIntersection(intArrayOf(1, 3, 5, 7)))
     }
 }

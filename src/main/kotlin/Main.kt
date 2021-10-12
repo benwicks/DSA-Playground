@@ -187,3 +187,7 @@ fun findRandomAddedLetter(s: String, t: String): Char {
         ' '
     }
 }
+
+fun IntArray.getIntersection(other: IntArray): IntArray {
+    return filter { it in other }.toSet().toIntArray()
+}
