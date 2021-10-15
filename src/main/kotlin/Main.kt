@@ -191,3 +191,22 @@ fun findRandomAddedLetter(s: String, t: String): Char {
 fun IntArray.getIntersection(other: IntArray): IntArray {
     return filter { it in other }.toSet().toIntArray()
 }
+
+fun getUncommonWords(sentence1: String, sentence2: String): List<String> {
+    val uniqueWords = mutableSetOf<String>()
+
+    val words1 = sentence1.split(" ")
+    val words2 = sentence2.split(" ").toSet()
+
+    uniqueWords.addAll(words1)
+
+    words2.forEach {
+        if (it in uniqueWords) {
+            uniqueWords.remove(it)
+        } else {
+            uniqueWords.add(it)
+        }
+    }
+
+    return uniqueWords.toList().sorted()
+}

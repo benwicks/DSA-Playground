@@ -1,6 +1,5 @@
-import org.junit.jupiter.api.Test
-
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
 import kotlin.test.assertContentEquals
 
 internal class MainKtTest {
@@ -105,5 +104,17 @@ internal class MainKtTest {
         assertContentEquals(intArrayOf(2, 4), intArrayOf(2, 4, 4, 2).getIntersection(intArrayOf(2, 4)))
         assertContentEquals(intArrayOf(3), intArrayOf(1, 2, 3, 3).getIntersection(intArrayOf(3, 3)))
         assertContentEquals(intArrayOf(), intArrayOf(2, 4, 6, 8).getIntersection(intArrayOf(1, 3, 5, 7)))
+    }
+
+    @Test
+    fun getUncommonWords() {
+        // todo fix order-insensitive comparison/assertion. https://stackoverflow.com/questions/21624592/hamcrest-compare-collections/38262680#38262680
+        // https://stackoverflow.com/questions/22807328/assertequals-2-lists-ignore-order
+        assertContentEquals(listOf("brown", "fox", "quick", "the"), getUncommonWords("the quick", "brown fox"))
+        assertContentEquals(
+            listOf("beat", "lost", "to"),
+            getUncommonWords("the tortoise beat the haire", "the tortoise lost to the haire")
+        )
+        assertContentEquals(listOf("copper", "hot"), getUncommonWords("copper coffee pot", "hot coffee pot"))
     }
 }
