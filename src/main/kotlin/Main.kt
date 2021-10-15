@@ -210,3 +210,45 @@ fun getUncommonWords(sentence1: String, sentence2: String): List<String> {
 
     return uniqueWords.toList().sorted()
 }
+
+fun <T : Comparable<T>> mergeLinkedLists(l1: LinkedList<T?>, l2: LinkedList<T?>): List<T?> {
+    val resultantSortedList = LinkedList<T?>()
+
+    var l1Index = 0
+    var l2Index = 0
+
+    while (l1Index < l1.size || l2Index < l2.size) {
+        if (l1Index == l1.size) {
+            resultantSortedList += l2[l2Index]
+            l2Index++
+        } else if (l2Index == l2.size) {
+            resultantSortedList += l1[l1Index]
+            l1Index++
+        } else {
+            val nextFromL1 = l1[l1Index]
+            val nextFromL2 = l2[l2Index]
+
+            val nextSmallestElement = if (nextFromL1 != null && nextFromL2 != null) {
+                if (nextFromL1 <= nextFromL2) {
+                    l1Index++
+                    nextFromL1
+                } else {
+                    l2Index++
+                    nextFromL2
+                }
+            } else {
+                if (nextFromL1 == null) {
+                    l2Index++
+                    nextFromL2
+                } else {
+                    l1Index++
+                    nextFromL1
+                }
+            }
+
+            resultantSortedList += nextSmallestElement
+        }
+    }
+
+    return resultantSortedList
+}

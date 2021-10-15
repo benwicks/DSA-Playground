@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import java.util.*
 import kotlin.test.assertContentEquals
 
 internal class MainKtTest {
@@ -116,5 +117,12 @@ internal class MainKtTest {
             getUncommonWords("the tortoise beat the haire", "the tortoise lost to the haire")
         )
         assertContentEquals(listOf("copper", "hot"), getUncommonWords("copper coffee pot", "hot coffee pot"))
+    }
+
+    @Test
+    fun mergeLinkedLists() {
+        assertEquals(LinkedList(listOf(1, 2, 3, 4, 5, 6, null)), mergeLinkedLists(LinkedList(listOf(1, 2, 3)), LinkedList(listOf(4, 5, 6, null))))
+        assertEquals(LinkedList(listOf(1, 2, 3, 4, 5, 6, null)), mergeLinkedLists(LinkedList(listOf(1, 3, 5)), LinkedList(listOf(2, 4, 6, null))))
+        assertEquals(LinkedList(listOf(1, 4, 4, 5, 6, 7, null)), mergeLinkedLists(LinkedList(listOf(4, 4, 7)), LinkedList(listOf(1, 5, 6, null))))
     }
 }
